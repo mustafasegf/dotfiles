@@ -115,6 +115,111 @@ alias l="ls -Alh"
 
 alias g="git"
 
+
+# git status
+function gsts (){git status}
+# git commit
+function gc (){git commit -am "$@"}
+# git add 
+function ga (){git add "$@"}
+# git switch (mirip kayak git checkout)
+function gs (){git switch "$@"}
+# git merge
+function gm (){git merge "$@"}
+# git checkout -b (untuk bikin branch baru)
+function gcb (){git checkout -b "$@"}
+# git commit --ammend di pake untuk ganti commit message paling baru
+function gca (){git commit --amend --no-edit -m "$@"}
+# command ini di pake untuk undo satu commit kalau kalian salah commit (note: commit akan hilang kalo belum di push, dan kalau sudah di push dan di undo nanti akan ada masalah)
+function gu (){git reset --soft HEAD~1}
+# git stash, di pake kalo perlu simpen perubahan tapi perlu pindah branch tanpa commit
+function gst (){git stash "$@"}
+# git stash pop untuk membalikan apa yang ada di stash
+function gstp (){git stash pop "$@"}
+# untuk meng remove cache
+function grmc (){git rm --cached "$@"}
+# note: kalo kalian lupa udah ngoding di branch yang salah, bisa tuh git stash, pindah branch trus git stash pop.
+
+# git push origin
+function gpo (){git push origin "$@"}
+# git pull origin
+function gplo (){git pull origin "$@"}
+# git push upstream
+function gpu (){git push upstream "$@"}
+# git pull upstream
+function gplu (){git pull upstream  "$@"}
+
+# advance git alias
+# note: ini perlu install sed
+
+# git merge branch. contoh lagi di zeus-999-dev, nati akan merge ke branch zeus-999
+function gmb (){gm "$(git symbolic-ref --short HEAD | sed 's/.\{5\}$//')"}
+# git switch branch. contoh lagi di zeus-999-dev, nati akan pindah ke branch zeus-999
+function gsb (){gs "$(git symbolic-ref --short HEAD | sed 's/.\{5\}$//')"}
+# git switch master. bakal pindah ke branch master 
+function gsm (){gs "master"}
+
+function gpom (){gpo master}
+function gpum (){gpu master}
+
+function gplom (){gplo master}
+function gplum (){gplu master}
+
+function gplob (){gplo "$(git symbolic-ref --short HEAD)"}
+function gplub (){gplu "$(git symbolic-ref --short HEAD)"}
+
+# git push origin branch. Akan meng push branch sekarang ke origin
+function gpob (){gpo "$(git symbolic-ref --short HEAD)"}
+# git push upstream branch. Akan meng push branch sekarang ke upstream
+function gpub (){gpu "$(git symbolic-ref --short HEAD)"}
+
+# git checkout -b development.  contoh lagi di zeus-999 nanti akan membuat branch baru zeus-999-dev
+function gcd (){gcb "$(git symbolic-ref --short HEAD)-dev"}
+# git checkout -b staging.  contoh lagi di zeus-999 nanti akan membuat branch baru zeus-999-stg
+function gcs (){gcb "$(git symbolic-ref --short HEAD)-stg"}
+# git checkout -b production.  contoh lagi di zeus-999 nanti akan membuat branch baru zeus-999-prd
+function gcp (){gcb "$(git symbolic-ref --short HEAD)-prd"}
+
+# git switch development.  contoh lagi di zeus-999 nanti akan pundah ke branch zeus-999-dev
+function gsd (){gs "$(git symbolic-ref --short HEAD)-dev"}
+# git switch staging.  contoh lagi di zeus-999 nanti akan pundah ke branch zeus-999-stg
+function gss (){gs "$(git symbolic-ref --short HEAD)-stg"}
+# git switch production.  contoh lagi di zeus-999 nanti akan pundah ke branch zeus-999-prd
+function gsp (){gs "$(git symbolic-ref --short HEAD)-prd"}
+
+
+# git checkout development origin. Contoh lagi di zeus-999, akan membuat branch baru zeus-999-dev dan akan push ke origin
+function gcdo (){gcd && gpob}
+# git checkout staging origin. Contoh lagi di zeus-999, akan membuat branch baru zeus-999-stg dan akan push ke origin
+function gcso (){gcs && gpob}
+# git checkout production origin. Contoh lagi di zeus-999, akan membuat branch baru zeus-999-prd dan akan push ke origin
+function gcpo (){gcp && gpob}
+
+
+# git switch development origin.  Contoh lagi di zeus-999, akan pindah ke branch zeus-999-dev, merge branch zeus-999-dev dari zeus-999, push ke origin
+function gsdo (){gsd && gmb && gpob}
+# git switch staging origin.  Contoh lagi di zeus-999, akan pindah ke branch zeus-999-stg, merge branch zeus-999-stg dari zeus-999, push ke origin
+function gsso (){gss && gmb && gpob}
+# git switch production origin.  Contoh lagi di zeus-999, akan pindah ke branch zeus-999-prd, merge branch zeus-999-prd dari zeus-999, push ke origin
+function gspo (){gsp && gmb && gpob}
+
+
+# git checkout development upstream. Contoh lagi di zeus-999, akan membuat branch baru zeus-999-dev dan akan push ke upstream
+function gcdu (){gcd && gpub && prbd}
+# git checkout staging upstream. Contoh lagi di zeus-999, akan membuat branch baru zeus-999-stg dan akan push ke upstream
+function gcsu (){gcs && gpub && prbs}
+# git checkout production upstream. Contoh lagi di zeus-999, akan membuat branch baru zeus-999-prd dan akan push ke upstream
+function gcpu (){gcp && gpub && prbs}
+
+
+# git checkout development upstream. Contoh lagi di zeus-999, akan membuat branch baru zeus-999-dev dan akan push ke upstream
+function gsdu (){gsd && gmb && gpub}
+# git checkout staging upstream. Contoh lagi di zeus-999, akan membuat branch baru zeus-999-stg dan akan push ke upstream
+function gssu (){gss && gmb && gpub}
+# git checkout production upstream. Contoh lagi di zeus-999, akan membuat branch baru zeus-999-prd dan akan push ke upstream
+function gspu (){gsp && gmb && gpub}
+
+
 # alias mv="mvg -gr"
 # alias cp="cpg -gr"
 
