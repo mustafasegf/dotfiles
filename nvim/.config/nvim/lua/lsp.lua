@@ -87,12 +87,12 @@ end
 local null_ls = require("null-ls")
 local formatting = null_ls.builtins.formatting
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 require("null-ls").setup({
 	-- you can reuse a shared lspconfig on_attach callback here
-	on_attach = function(client, bufnr)
-		on_attach(client, bufnr)
-		if client.supports_method("textDocument/formatting") then
+	--[[ on_attach = function(client, bufnr)
+		on_attach(client, bufnr) ]]
+	--[[ if client.supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				group = augroup,
@@ -102,8 +102,8 @@ require("null-ls").setup({
 					vim.lsp.buf.format({ bufnr = bufnr })
 				end,
 			})
-		end
-	end,
+		end ]]
+	-- end,
 	sources = {
 		formatting.stylua,
 		formatting.prettier,
