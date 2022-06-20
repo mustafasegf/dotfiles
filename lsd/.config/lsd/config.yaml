@@ -1,0 +1,28 @@
+layout: grid
+
+blocks: 
+  - permission
+  - user
+  - group
+  - date
+  - size
+  - name
+
+color:
+  when: auto
+
+date: +%d %m(%b) %Y %a 
+
+recursion:
+  enabled: false
+  depth: 3
+
+size: short 
+
+permission: rwx
+
+no-symlink: false
+
+total-size: false
+
+hyperlink: auto

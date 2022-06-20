@@ -44,7 +44,7 @@ plugins=(
     copypath
     dirhistory
     history
-    # fzf
+    fzf
     tmux
     history-substring-search
     colored-man-pages
@@ -66,9 +66,11 @@ export FZF_DEFAULT_OPTS="--layout=reverse --inline-info --height=90%"
 
 . /opt/asdf-vm/asdf.sh
 
-# export BROWSER='google-chrome-stable'
+export BROWSER='google-chrome-stable'
 export VISUAL='nvim'
 export EDITOR='nvim'
+export PAGER='less'
+
 export QT_QPA_PLATFORMTHEME=qt5ct
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
@@ -86,7 +88,6 @@ alias luamake=/home/mustafa/project/lua-language-server/3rd/luamake/luamake
 
 eval "$(starship init zsh)"
 
-
 # Package
 QPAS='pacman -Si {1}'
 QPAR='pacman -Qi {1}'
@@ -97,25 +98,22 @@ alias yas='yay -Slq | fzf -m --preview ${QYAS} | xargs -ro  yay -S'
 alias par='pacman -Qqe | fzf -m --preview ${QPAR} | xargs -ro sudo pacman -Rns'
 alias yar='yay -Qqe | fzf -m --preview ${QYAR} | xargs -ro  yay -Rns'
 
+
+export MANPAGER='nvim +Man!'
+
 # alias
 alias rm="trash"
 alias cat="bat"
+alias grep="rg"
+alias c="clear"
+
 alias ls="lsd"
 alias ll="ls -l"
 alias la="ls -A"
-alias l="ls -CF"
-alias grep="rg"
-alias c="clear"
-alias g="git"
-alias gs="git status"
-alias gd="git diff"
-alias gc="git commit"
-alias gca="git commit -a"
-alias gco="git checkout"
-alias gb="git branch"
-alias gba="git branch -a"
-alias gco="git checkout"
+alias l="ls -lah"
 
+
+alias g="git"
 
 
 export JDTLS_HOME=/home/mustafa/.local/bin/jdtls
