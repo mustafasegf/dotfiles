@@ -1,0 +1,10 @@
+vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
+vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
+vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>")
+vim.keymap.set("n", "<leader>fl", ":Telescope git_files<CR>")
+vim.keymap.set("n", "<leader>fk", ":Telescope keymaps<CR>")
+
+local telescope = require("telescope")
+telescope.load_extension("dap")
+require("telescope").load_extension("session-lens")
