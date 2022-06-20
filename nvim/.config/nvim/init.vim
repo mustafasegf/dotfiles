@@ -81,7 +81,7 @@ Plug 'NTBBloodbath/rest.nvim'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'github/copilot.vim'
 Plug 'windwp/nvim-autopairs'
-    
+ 
 "quality of life
 Plug 'b3nj5m1n/kommentary'
 Plug 'windwp/nvim-ts-autotag'
@@ -90,6 +90,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-surround'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'Pocco81/AutoSave.nvim'
+Plug 'ThePrimeagen/refactoring.nvim'
 
 "session
 Plug 'rmagatti/auto-session'
@@ -108,6 +109,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'andweeb/presence.nvim'
 Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
+Plug 'ThePrimeagen/harpoon'
 call plug#end()
 
 colorscheme dracula

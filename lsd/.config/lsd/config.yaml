@@ -15,7 +15,7 @@ date: +%d %m(%b) %Y %a
 
 recursion:
   enabled: false
-  depth: 3
+  depth: 7
 
 size: short 
 

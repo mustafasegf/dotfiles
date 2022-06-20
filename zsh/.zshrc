@@ -81,7 +81,7 @@ export CHTSH_QUERY_OPTIONS="style=rrt"
 mkcdir ()
 {
     mkdir -p -- "$1" &&
-      cd -P -- "$1"
+    cd -P -- "$1"
 }
 
 alias luamake=/home/mustafa/project/lua-language-server/3rd/luamake/luamake
@@ -107,14 +107,16 @@ alias cat="bat"
 alias grep="rg"
 alias c="clear"
 
-alias ls="lsd"
-alias ll="ls -l"
+alias ls="lsd -A"
+alias lt="ls --tree"
+alias ll="ls -Al"
 alias la="ls -A"
-alias l="ls -lah"
-
+alias l="ls -Alh"
 
 alias g="git"
 
+# alias mv="mvg -gr"
+# alias cp="cpg -gr"
 
 export JDTLS_HOME=/home/mustafa/.local/bin/jdtls
 LFCD="$HOME/.config/lf/lfcd.sh"                                #  pre-built binary, make sure to use absolute path

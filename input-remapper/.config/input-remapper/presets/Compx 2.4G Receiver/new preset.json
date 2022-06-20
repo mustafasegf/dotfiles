@@ -1,0 +1,12 @@
+{
+    "mapping": {
+        "1,275,1": [
+            "XF86Paste",
+            "keyboard"
+        ],
+        "1,276,1": [
+            "XF86Copy",
+            "keyboard"
+        ]
+    }
+}

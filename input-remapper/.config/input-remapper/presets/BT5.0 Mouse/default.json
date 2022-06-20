@@ -1,0 +1,12 @@
+{
+    "mapping": {
+        "1,276,1": [
+            "XF86Copy",
+            "keyboard"
+        ],
+        "1,275,1": [
+            "KEY_LEFTCTRL + Shift_L +  v",
+            "keyboard"
+        ]
+    }
+}

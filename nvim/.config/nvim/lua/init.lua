@@ -16,6 +16,7 @@ require("term")
 require("rest")
 require("session")
 require("save")
+require("refactor")
 
 require("go").setup()
 -- require('discord-presence')
