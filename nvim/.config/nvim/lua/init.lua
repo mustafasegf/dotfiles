@@ -17,6 +17,7 @@ require("rest")
 require("session")
 require("save")
 require("refactor")
+require("octo").setup()
 
 require("go").setup()
 -- require('discord-presence')

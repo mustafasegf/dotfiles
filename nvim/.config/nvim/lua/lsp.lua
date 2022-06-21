@@ -114,6 +114,7 @@ require("null-ls").setup({
 		formatting.autopep8,
 		formatting.terrafmt,
 		formatting.clang_format,
+    formatting.shfmt
 	},
 })
 
