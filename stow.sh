@@ -1,0 +1,29 @@
+#!/bin/sh
+
+stow bat
+stow bin
+stow btop
+stow conf
+stow dunst
+stow flameshot
+stow gh
+stow git
+stow gromit-mpx
+stow htop
+stow input-remapper
+stow kitty
+stow lf
+stow lsd
+stow mimeapps
+stow neofetch
+stow nvim
+stow optimus-manager-qt
+stow picom
+stow qtile
+stow rofi
+stow script
+stow starship
+stow termscp
+stow termshark
+stow tmux
+stow zsh
