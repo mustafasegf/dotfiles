@@ -118,7 +118,7 @@ require("null-ls").setup({
 	},
 })
 
-vim.api.nvim_exec([[ autocmd BufWritePost,FileWritePost *.go execute 'PrettyTag' | checktime ]], false)
+-- vim.api.nvim_exec([[ autocmd BufWritePost,FileWritePost *.go execute 'PrettyTag' | checktime ]], false)
 
 lsp.diagnosticls.setup({
 	on_attach = on_attach,

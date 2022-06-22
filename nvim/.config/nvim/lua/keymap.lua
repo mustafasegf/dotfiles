@@ -17,11 +17,8 @@ vim.keymap.set("n", "<leader><leader>x", ":source $MYVIMRC<CR>")
 -- copy to clipboard
 vim.keymap.set({ "v", "n" }, "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+yg_')
--- vim.keymap.set("n", "<leader>yy", '"yy')
 
 -- paste to clipbord
---
-
 vim.keymap.set({ "v", "n" }, "<leader>p", '"+p')
 vim.keymap.set({ "v", "n" }, "<leader>P", '"+P')
 
@@ -36,3 +33,5 @@ vim.keymap.set("n", "<leader>q", ':q<CR>', {silent= true}) ]]
 -- splits
 vim.keymap.set("n", "<leader>s", ":split<CR><C-w>j", { silent = true })
 vim.keymap.set("n", "<leader>v", ":vsplit<CR><C-w>l", { silent = true })
+
+

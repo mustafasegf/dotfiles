@@ -1,5 +1,6 @@
 require("keymap")
 
+require("color")
 require("git")
 require("register")
 require("colorizer").setup()
@@ -18,6 +19,6 @@ require("session")
 require("save")
 require("refactor")
 require("octo").setup()
-
+require("rename")
 require("go").setup()
 -- require('discord-presence')

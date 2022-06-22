@@ -23,6 +23,7 @@ set shortmess+=c
 set termguicolors
 set pumblend=15
 set mouse=a
+set winbar=%=%{expand('%:~:.')}
 syntax on
 
 call plug#begin('~/.vim/plugged')
@@ -91,6 +92,7 @@ Plug 'tpope/vim-surround'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'Pocco81/AutoSave.nvim'
 Plug 'ThePrimeagen/refactoring.nvim'
+Plug 'windwp/nvim-spectre'
 
 "session
 Plug 'rmagatti/auto-session'
@@ -111,9 +113,6 @@ Plug 'andweeb/presence.nvim'
 Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
 Plug 'ThePrimeagen/harpoon'
 call plug#end()
-
-colorscheme dracula
-highlight Normal guibg=none ctermbg=none
 
 lua require("init")
 
