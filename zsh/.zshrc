@@ -108,49 +108,32 @@ alias grep="rg"
 alias c="clear"
 
 alias ls="lsd -A"
-alias lt="ls --tree"
-alias ll="ls -Al"
 alias la="ls -A"
 alias l="ls -Alh"
+alias ll="ls -Al"
+alias lt="ls --tree"
 
 alias g="git"
 
 function cdg() { cd "$(git rev-parse --show-toplevel)"  }
 
-# git status
 function gsts (){git status}
-# git commit
 function gc (){git commit -am "$@"}
-# git add 
 function ga (){git add "$@"}
-# git switch (mirip kayak git checkout)
 function gs (){git switch "$@"}
-# git merge
 function gm (){git merge "$@"}
-# git checkout -b (untuk bikin branch baru)
 function gcb (){git checkout -b "$@"}
-# git commit --ammend di pake untuk ganti commit message paling baru
 function gca (){git commit --amend --no-edit -m "$@"}
-# command ini di pake untuk undo satu commit kalau kalian salah commit (note: commit akan hilang kalo belum di push, dan kalau sudah di push dan di undo nanti akan ada masalah)
 function gu (){git reset --soft HEAD~1}
-# git stash, di pake kalo perlu simpen perubahan tapi perlu pindah branch tanpa commit
 function gst (){git stash "$@"}
-# git stash pop untuk membalikan apa yang ada di stash
 function gstp (){git stash pop "$@"}
-# untuk meng remove cache
 function grmc (){git rm --cached "$@"}
-# note: kalo kalian lupa udah ngoding di branch yang salah, bisa tuh git stash, pindah branch trus git stash pop.
 
-# git push origin
 function gpo (){git push origin "$@"}
-# git pull origin
 function gplo (){git pull origin "$@"}
-# git push upstream
 function gpu (){git push upstream "$@"}
-# git pull upstream
 function gplu (){git pull upstream  "$@"}
 
-# advance git alias
 
 function gsm (){gs "master"}
 
@@ -163,13 +146,9 @@ function gplum (){gplu "master"}
 function gplob (){gplo "$(git symbolic-ref --short HEAD)"}
 function gplub (){gplu "$(git symbolic-ref --short HEAD)"}
 
-# git push origin branch. Akan meng push branch sekarang ke origin
 function gpob (){gpo "$(git symbolic-ref --short HEAD)"}
-# git push upstream branch. Akan meng push branch sekarang ke upstream
 function gpub (){gpu "$(git symbolic-ref --short HEAD)"}
 
-# alias mv="mvg -gr"
-# alias cp="cpg -gr"
 
 export JDTLS_HOME=/home/mustafa/.local/bin/jdtls
 LFCD="$HOME/.config/lf/lfcd.sh"                                #  pre-built binary, make sure to use absolute path
