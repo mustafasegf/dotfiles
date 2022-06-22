@@ -79,7 +79,7 @@ Plug 'NTBBloodbath/rest.nvim'
 
 "auto
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 Plug 'windwp/nvim-autopairs'
  
 "quality of life
