@@ -1,10 +1,17 @@
 # Basic Settings
-set previewer ~/.config/lf/preview
+set previewer "~/.config/lf/preview"
 set preview true
 set hidden true
 set drawbox true
 set icons true
 set ignorecase true
+set info size
+set sortby ext
+set mouse on
+set number on
+set relativenumber on
+set incsearch on
+set promptfmt "\033[32;1m%u@%h\033[0m:\033[34;1m%d\033[0m\033[1m%f\033[0m"
 
 # Dynamic pane
 ${{
@@ -21,8 +28,8 @@ ${{
 # Custom Functions
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
+      *) xdg-open "$f" ;;
         text/*|application/json) $EDITOR "$f";;
-        *) xdg-open "$f" ;;
     esac
 }}
 
@@ -113,7 +120,7 @@ cmd trash ${{
   done
 }}
 
-cmd clear_trash %trash-empty
+# cmd clear_trash %trash-empty
 
 cmd restore_trash ${{
   trash-restore
@@ -211,22 +218,33 @@ map <esc> q
 # Movement
 map gtr cd ~/.local/share/Trash/files
 
-map gv. cd ~/Videos
+map gv cd ~/Videos
 
 map gp. cd ~/Pictures
-map gps cd ~/Pictures/screenshots
+map gps cd ~/Pictures/screenshot
 map gpp cd ~/project
 
 map gd cd ~/Documents
-
 map gD cd ~/Downloads
+map gt cd ~/dotfiles
 
 map gs. cd ~/scripts
 
 map gc cd ~/.config
 map gl cd ~/.local
+
 map gE cd /etc
 map gU. cd /usr
 map gUs cd /usr/share
 
 map gh cd ~
+
+# mouse support
+ map <m-up>    up
+ map <m-down>  down
+ map <m-left>  updir
+ map <m-right> open
+
+ map <m-1> open
+ map <m-2> updir
+ map <m-3> right 
