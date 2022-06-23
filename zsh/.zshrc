@@ -107,7 +107,7 @@ alias cat="bat"
 alias grep="rg"
 alias c="clear"
 
-alias ls="lsd -A"
+alias ls="lsd"
 alias la="ls -A"
 alias l="ls -Alh"
 alias ll="ls -Al"
