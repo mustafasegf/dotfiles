@@ -77,6 +77,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:~/.local/bin
 export JDTLS_HOME=~/.local/bin
 export PATH=$PATH:~/.cargo/bin
+export PATH=$PATH:/var/lib/snapd/snap/bin # i only use snap for minecraft ok. please don't judge me.
 export CHTSH_QUERY_OPTIONS="style=rrt"
 mkcdir ()
 {
