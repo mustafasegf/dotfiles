@@ -1,6 +1,8 @@
 set number
 set rnu
 " set nohlsearch
+set ignorecase
+set smartcase
 set hidden
 set noerrorbells
 set tabstop=2 softtabstop=2
