@@ -245,6 +245,6 @@ map gh cd ~
  map <m-left>  updir
  map <m-right> open
 
- map <m-1> open
- map <m-2> updir
- map <m-3> right 
+ # map <m-1> open
+ # map <m-2> updir
+ # map <m-3> right 
