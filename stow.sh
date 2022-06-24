@@ -19,6 +19,8 @@ stow neofetch
 stow nvim
 stow optimus-manager-qt
 stow picom
+stow qt5ct
+stow qt6ct
 stow qtile
 stow rofi
 stow script
