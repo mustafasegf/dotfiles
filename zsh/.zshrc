@@ -99,6 +99,7 @@ alias yas='yay -Slq | fzf -m --preview ${QYAS} | xargs -ro  yay -S'
 alias par='pacman -Qqe | fzf -m --preview ${QPAR} | xargs -ro sudo pacman -Rns'
 alias yar='yay -Qqe | fzf -m --preview ${QYAR} | xargs -ro  yay -Rns'
 
+alias mans='man -k  . | cut -d " " -f 1 | fzf -m --preview "man {1}"'
 
 export MANPAGER='nvim +Man!'
 
@@ -156,6 +157,13 @@ LFCD="$HOME/.config/lf/lfcd.sh"                                #  pre-built bina
 if [ -f "$LFCD" ]; then
     source "$LFCD"
 fi
+
+# check default mime app
+function mime-check() {
+  f="$(file --mime-type -bL "$1")"
+  echo $f
+  echo "$(xdg-mime query default "$f")"
+}
 
 export LF_ICONS="\
 di=:\
