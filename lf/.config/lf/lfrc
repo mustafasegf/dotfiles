@@ -36,7 +36,7 @@ cmd open ${{
 cmd mkdir ${{
   printf "Directory Name: "
   read ans
-  mkdir $ans
+  mkdir -p $ans
 }}
 
 cmd mkfile ${{
