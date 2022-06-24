@@ -116,7 +116,7 @@ alias ll="ls -Al"
 alias lt="ls --tree"
 
 alias g="git"
-
+alias lg="lazygit"
 function cdg() { cd "$(git rev-parse --show-toplevel)"  }
 
 function gsts (){git status}
