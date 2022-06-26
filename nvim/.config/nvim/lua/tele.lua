@@ -9,3 +9,4 @@ vim.keymap.set("n", "<leader>fc", ":Telescope current_buffer_fuzzy_find fuzzy=fa
 local telescope = require("telescope")
 telescope.load_extension("dap")
 require("telescope").load_extension("session-lens")
+require("telescope").load_extension('harpoon')
