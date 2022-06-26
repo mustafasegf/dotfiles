@@ -5,5 +5,4 @@ copyq &
 gromit-mpx &
 noisetorch -i &
 thunderbird &
-notion-app-enchanced &
-
+notion-app-enhanced &
