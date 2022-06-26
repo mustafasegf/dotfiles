@@ -109,7 +109,8 @@ keys = [
     Key([], "XF86AudioLowerVolume", lazy.spawn(f"sh {script}/volume.sh down")),
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 1 toggle")),
     Key([mod], "e", lazy.spawn("rofi -show emoji -modi emoji")),
-    Key([mod], "v", lazy.spawn(home + "/.local/bin/rofi-copyq")),
+    # Key([mod], "v", lazy.spawn(home + "/.local/bin/rofi-copyq")),
+    Key([mod], "v", lazy.spawn("copyq show")),
     Key([], "Print", lazy.spawn("flameshot screen -c")),
     Key([mod], "Print", lazy.spawn("flameshot full -c")),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui")),
@@ -243,6 +244,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='PacketTracer'),
     # Match(func= lambda c: c.wm_class=="zoom" ),
     Match(wm_class="zoom"),
+    Match(wm_class="copyq")
 ])
 
 auto_fullscreen = True
