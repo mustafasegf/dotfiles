@@ -149,6 +149,8 @@ cmd cpdragon %cpdragon
 cmd mvdragon %mvdragon
 cmd dlfile %dlfile
 
+
+cmd lg $lazygit
 # Bindings
 # Remove some defaults
 map m
@@ -240,11 +242,11 @@ map gUs cd /usr/share
 map gh cd ~
 
 # mouse support
- map <m-up>    up
- map <m-down>  down
- map <m-left>  updir
- map <m-right> open
+map <m-up>    up
+map <m-down>  down
+map <m-left>  updir
+map <m-right> open
 
- # map <m-1> open
- # map <m-2> updir
- # map <m-3> right 
+# map <m-1> open
+# map <m-2> updir
+# map <m-3> right 
