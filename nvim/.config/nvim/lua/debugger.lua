@@ -8,7 +8,7 @@ vim.keymap.set("n", "<leader>dm", ":lua require'dap'.set_breakpoint(nil, nil, vi
 vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open() <CR>")
 vim.keymap.set("n", "<leader>do", ":lua require'dapui'.toggle() <CR>")
 
-require'nvim-dap-virtual-text'.setup()
-require'dap-go'.setup()
-require'dapui'.setup()
+require("nvim-dap-virtual-text").setup()
+require("dap-go").setup()
+require("dapui").setup()
 

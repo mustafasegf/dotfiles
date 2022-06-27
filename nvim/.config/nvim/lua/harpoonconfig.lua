@@ -1,7 +1,7 @@
 require("harpoon").setup({
-    menu = {
-        width =  100,
-    }
+	menu = {
+		width = 100,
+	},
 })
 
 vim.keymap.set("n", "<leader>mm", ':lua require("harpoon.mark").add_file()<CR>')
@@ -12,4 +12,4 @@ vim.keymap.set("n", "<leader>mf", ':lua require("harpoon.ui").toggle_quick_menu(
 vim.keymap.set("n", "<leader>ml", ':lua require("harpoon.ui").nav_next()<CR>')
 vim.keymap.set("n", "<leader>mh", ':lua require("harpoon.ui").nav_prev()<CR>')
 
-vim.keymap.set("n", "<leader>fm", ':Telescope harpoon marks<CR>')
+vim.keymap.set("n", "<leader>fm", ":Telescope harpoon marks<CR>")

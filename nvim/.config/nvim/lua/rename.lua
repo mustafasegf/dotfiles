@@ -1,4 +1,4 @@
-require('spectre').setup()
+require("spectre").setup()
 
 vim.keymap.set("n", "<leader>fr", ":lua require('spectre').open()<CR>")
 vim.keymap.set("n", "<leader>fw", ":lua require('spectre').open_visual({select_word=true})<CR>")
