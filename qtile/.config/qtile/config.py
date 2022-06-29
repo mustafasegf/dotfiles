@@ -42,12 +42,16 @@ script = home + "/script"
 keys = [
     # common app
     Key([mod], "d", lazy.spawn("rofi -modi drun -show drun -term kitty"), desc="launch app launcher"),
+    Key([mod], "e", lazy.spawn("rofi -show emoji -modi emoji")),
+    Key([mod], "c", lazy.spawn("rofi -show calc -modi calc -no-show-match -no-sort")),
+    Key([mod], "x", lazy.spawn("rofi-wifi-menu")),
+    Key([mod, "shift"], "q", lazy.spawn(home + "/script/powermenu.sh"), desc="Shutdown Qtile"),
     Key(["mod1", "shift"], "q", lazy.shutdown()),
     Key([mod], "o", lazy.spawn("kitty lf"), desc="launch lf"),
     Key([mod, "shift"], "o", lazy.spawn("thunar"), desc="launch lf"),
     Key([mod], "u", lazy.spawn(f"kitty {script}/runspt"), desc="launch spt"),
     Key([mod], "w", lazy.spawn(browser + " --enable-features=WebUIDarkMode --force-dark-mode"), desc="launch browser"),
-    Key([mod, "shift"], "d", lazy.spawn('rofi -modi drun -show window -linepadding 4 -columns 2 -padding 50 -hide-scrollbar -terminal kitty -show-icons -drun-icontheme "Arc-X-D" -form "Droid Sans Regular 10"'), desc="launch browser"),
+    Key([mod, "shift"], "d", lazy.spawn('rofi -modi drun -show window -linepadding 4 -columns 2 -padding 50 -hide-scrollbar -terminal kitty -show-icons'), desc="launch browser"),
     Key([mod], "p", lazy.spawn("discord"), desc="launch discord"),
     Key([mod], "t", lazy.spawn("kitty btop"), desc="launch btop"),
     # Switch between windows
@@ -94,7 +98,6 @@ keys = [
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
 
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
-    Key([mod, "shift"], "q", lazy.spawn(home + "/script/powermenu.sh"), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
 
@@ -108,7 +111,6 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn(f"sh {script}/volume.sh up")),
     Key([], "XF86AudioLowerVolume", lazy.spawn(f"sh {script}/volume.sh down")),
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 1 toggle")),
-    Key([mod], "e", lazy.spawn("rofi -show emoji -modi emoji")),
     # Key([mod], "v", lazy.spawn(home + "/.local/bin/rofi-copyq")),
     Key([mod], "v", lazy.spawn("copyq show")),
     Key([], "Print", lazy.spawn("flameshot screen -c")),
