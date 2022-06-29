@@ -114,9 +114,13 @@ alias la="ls -A"
 alias l="ls -Alh"
 alias ll="ls -Al"
 alias lt="ls --tree"
+alias lta="ls -A --tree"
 
 alias g="git"
 alias lg="lazygit"
+
+alias cp="cpg -gr"
+alias mv="mvg -gr"
 function cdg() { cd "$(git rev-parse --show-toplevel)"  }
 
 function gsts (){git status}
@@ -326,3 +330,8 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
+
+# pnpm
+export PNPM_HOME="/home/mustafa/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
