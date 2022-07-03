@@ -1,4 +1,10 @@
-export ZSH="/home/mustafa/.config/zsh/.oh-my-zsh"
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CACHE_HOME=$HOME/.cache
+
+export ZSH="$XDG_CONFIG_HOME"/zsh/oh-my-zsh
+
 ZSH_THEME="dracula"
 # CASE_SENSITIVE="true"
 
@@ -22,12 +28,12 @@ DISABLE_MAGIC_FUNCTIONS="true"
 # COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 
-ZSH_CUSTOM=~/.config/zsh/.oh-my-zsh/custom
+ZSH_CUSTOM=$ZSH/custom
 
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOSTART_ONCE=false
 ZSH_TMUX_AUTOCONNECT=true
-ZSH_TMUX_CONFIG=$HOME/.config/tmux/tmux.conf
+ZSH_TMUX_CONFIG=$XDG_CONFIG_HOME/tmux/tmux.conf
 
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
@@ -54,6 +60,40 @@ plugins=(
     gcloud
     aws
 )
+
+export ANDROID_HOME="$XDG_DATA_HOME"/android
+export ASDF_DATA_DIR="${XDG_DATA_HOME}"/asdf
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
+export HISTFILE="${XDG_STATE_HOME}"/zsh/history
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export ELINKS_CONFDIR="$XDG_CONFIG_HOME"/elinks
+export GEM_HOME="${XDG_DATA_HOME}"/gem
+export GEM_SPEC_CACHE="${XDG_CACHE_HOME}"/gem
+export GEM_SPEC_CACHE="${XDG_CACHE_HOME}"/gem
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export GOPATH="$XDG_DATA_HOME"/go
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export KDEHOME="$XDG_CONFIG_HOME"/kde
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+export DVDCSS_CACHE="$XDG_DATA_HOME"/dvdcss
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
+export PSQL_HISTORY="$XDG_DATA_HOME"/psql_history
+export KERAS_HOME="$XDG_STATE_HOME"/keras
+export REDISCLI_HISTFILE="$XDG_DATA_HOME"/redis/rediscli_history
+export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
+export WINEPREFIX="$XDG_DATA_HOME"/wine
+export _Z_DATA="$XDG_DATA_HOME"/z
+
+alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias xbindkeys=xbindkeys -f "$XDG_CONFIG_HOME"/xbindkeys/config
+
 source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -72,7 +112,6 @@ export EDITOR='nvim'
 export PAGER='less'
 
 export QT_QPA_PLATFORMTHEME=qt5ct
-export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:~/.local/bin
 export JDTLS_HOME=~/.local/bin
@@ -120,7 +159,7 @@ alias g="git"
 alias lg="lazygit"
 
 alias cp="cpg -gr"
-alias mv="mvg -gr"
+alias mv="mvg -g"
 function cdg() { cd "$(git rev-parse --show-toplevel)"  }
 
 function gsts (){git status}
