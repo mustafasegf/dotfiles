@@ -111,7 +111,7 @@ require("null-ls").setup({
 		formatting.goimports,
 		formatting.jq,
 		formatting.rustfmt,
-		formatting.autopep8,
+		formatting.black,
 		formatting.terrafmt,
 		formatting.clang_format,
 		formatting.shfmt,
