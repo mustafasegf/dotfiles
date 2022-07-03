@@ -142,8 +142,23 @@ def init_border_config():
     config = {"border_focus":"#6c71c4", "border_normal":"#073642", "margin":5, "border_width":1, "grow_amount":2}
     return config
 
+def init_treetab_config():
+    config = {"active_bg":"#6c71c4",
+        "inactive_bg":"#6272a4",
+        "active_fg":"#f8f8f2",
+        "inactive_fg":"#f8f8f2",
+        "bg_color": "#282a36",
+        "padding_left": 0,
+        "padding_x": 0,
+        "fontsize": 13,
+        "font": "IBM Plex Mono",
+        "panel_width": 100
+    }
+    return config
+
 layouts = [
     layout.Columns(**init_border_config()),
+    layout.TreeTab(**init_treetab_config()),
     # Try more layouts by unleashing below layouts.
 
     # layout.Stack(num_stacks=2),
@@ -153,10 +168,9 @@ layouts = [
     # layout.MonadWide(ratio=0.66, margin=5, border_width=1, **init_border_colors()),
     # layout.RatioTile(),
     # layout.Tile(master_length = 2),
-    # layout.TreeTab(),
 
     layout.Floating(**init_border_config()),
-    layout.VerticalTile(**init_border_config()),
+    # layout.VerticalTile(**init_border_config()),
     # layout.Zoomy(**init_border_colors()), 
     layout.Max(),
 ]
