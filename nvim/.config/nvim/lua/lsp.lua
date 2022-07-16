@@ -115,6 +115,7 @@ require("null-ls").setup({
 		formatting.terrafmt,
 		formatting.clang_format,
 		formatting.shfmt,
+		formatting.fourmolu,
 	},
 })
 
@@ -146,6 +147,11 @@ lsp.clangd.setup({
 })
 
 lsp.rust_analyzer.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lsp.hls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
