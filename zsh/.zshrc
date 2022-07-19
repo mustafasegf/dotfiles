@@ -139,6 +139,7 @@ alias par='pacman -Qqe | fzf -m --preview ${QPAR} | xargs -ro sudo pacman -Rns'
 alias yar='yay -Qqe | fzf -m --preview ${QYAR} | xargs -ro  yay -Rns'
 
 alias mans='man -k  . | cut -d " " -f 1 | fzf -m --preview "man {1}"'
+alias m="make"
 
 export MANPAGER='nvim +Man!'
 
