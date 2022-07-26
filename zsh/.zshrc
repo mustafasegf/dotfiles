@@ -163,6 +163,7 @@ alias lg="lazygit"
 
 alias cp="cpg -gr"
 alias mv="mvg -g"
+alias apt="apt-fast"
 function cdg() { cd "$(git rev-parse --show-toplevel)"  }
 
 function gsts (){git status}
