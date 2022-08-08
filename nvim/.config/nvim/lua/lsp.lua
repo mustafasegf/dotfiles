@@ -73,7 +73,7 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gsd", ":split <CR><C-w>l:lua vim.lsp.buf.definition()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "K", ":lua vim.lsp.buf.hover()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":lua vim.lsp.buf.implementation()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", ":lua vim.lsp.buf.signature_help()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-q>", ":lua vim.lsp.buf.signature_help()<CR>", opts)
 	--[[ vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wa', ':lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wr', ':lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', ':lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts) ]]
@@ -128,18 +128,18 @@ lsp.diagnosticls.setup({
 -- Setup lspconfig.
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-lsp.ltex.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "text" },
-	settings = {
-		ltex = {
-			additionalRules = {
-				languageModel = "~Downloads/ngrams/",
-			},
-		},
-	},
-})
+-- lsp.ltex.setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- 	filetypes = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "text" },
+-- 	settings = {
+-- 		ltex = {
+-- 			additionalRules = {
+-- 				languageModel = "~Downloads/ngrams/",
+-- 			},
+-- 		},
+-- 	},
+-- })
 
 lsp.clangd.setup({
 	capabilities = capabilities,
@@ -164,6 +164,11 @@ lsp.gopls.setup({
 lsp.pyright.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+  -- settings = {
+  --   python = {
+  --
+  --   }
+  -- }
 })
 
 lsp.tsserver.setup({
@@ -238,6 +243,11 @@ lsp.jdtls.setup({
 })
 
 lsp.svelte.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lsp.astro.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })

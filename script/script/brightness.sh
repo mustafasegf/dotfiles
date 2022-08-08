@@ -1,11 +1,10 @@
-brightness="$(sudo cat /sys/class/backlight/amdgpu_bl0/brightness)"
 
 if [[ "$1" == "up" ]]; then 
-  brightness=$(($brightness + 5))
+  brightnessctl -q set 25+
 
 elif [[ "$1" == "down" ]]; then
-  brightness=$(($brightness - 5))
+  brightnessctl -q set 25-
 fi
 
-echo $(($brightness)) | sudo tee  /sys/class/backlight/amdgpu_bl0/brightness
-notify-send "Brightness $(whoami)" "$brightness" -i "multimedia-volume-control"
+brightness="$(brightnessctl get)"
+notify-send "Brightness" "$brightness" -i "multimedia-volume-control"

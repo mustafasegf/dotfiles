@@ -3,6 +3,12 @@ if [[ "$1" == "up" ]]; then
 
 elif [[ "$1" == "down" ]]; then
   pamixer -d 5 #to decrease 5%
+
+elif [[ "$1" == "mute" ]]; then
+  pamixer -t #toggle mute
 fi
+
 vol="$(pamixer --get-volume)"
-notify-send "volume $1" "$vol" -i "multimedia-volume-control"
+mute="$(pamixer --get-mute)"
+icon=$([ "$mute" == "false" ] && echo "🔉" || echo "🔇")
+notify-send "volume $1" "$vol% $icon" -i "multimedia-volume-control"

@@ -114,8 +114,12 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'andweeb/presence.nvim'
 Plug 'tversteeg/registers.nvim', { 'branch': 'main' }
 Plug 'ThePrimeagen/harpoon'
+Plug 'justinmk/vim-sneak'
 call plug#end()
 
 lua require("init")
+autocmd BufRead,BufEnter *.astro set filetype=astro
+autocmd BufRead,BufEnter *.json set filetype=jsonc
+
 
 set rtp+=/home/mustafa/go/pkg/mod/github.com/momaek/formattag@v0.0.7/vim
