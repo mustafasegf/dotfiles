@@ -5,7 +5,7 @@ set ignorecase
 set smartcase
 set hidden
 set noerrorbells
-set tabstop=2 softtabstop=2
+set tabstop=2 softtabstop=2 shiftwidth=2
 set shiftwidth=2
 set expandtab
 set smartindent
@@ -120,6 +120,5 @@ call plug#end()
 lua require("init")
 autocmd BufRead,BufEnter *.astro set filetype=astro
 autocmd BufRead,BufEnter *.json set filetype=jsonc
-
 
 set rtp+=/home/mustafa/go/pkg/mod/github.com/momaek/formattag@v0.0.7/vim
