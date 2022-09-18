@@ -14,6 +14,10 @@ require("nvim-treesitter.configs").setup({
 	textobjects = {
 		enable = true,
 	},
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
 	rainbow = {
 		enable = true,
 		extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean

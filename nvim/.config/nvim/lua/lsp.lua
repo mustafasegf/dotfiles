@@ -141,6 +141,10 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 -- 	},
 -- })
 
+local ih = require("inlay-hints")
+
+ih.setup()
+
 lsp.clangd.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -164,16 +168,43 @@ lsp.gopls.setup({
 lsp.pyright.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-  -- settings = {
-  --   python = {
-  --
-  --   }
-  -- }
+	-- settings = {
+	--   python = {
+	--
+	--   }
+	-- }
 })
 
 lsp.tsserver.setup({
 	capabilities = capabilities,
-	on_attach = on_attach,
+	on_attach = function(c, b)
+		on_attach(c, b)
+		-- ih.on_attach(c, b)
+	end,
+	settings = {
+		javascript = {
+			inlayHints = {
+				includeInlayEnumMemberValueHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayVariableTypeHints = true,
+			},
+		},
+		typescript = {
+			inlayHints = {
+				includeInlayEnumMemberValueHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayVariableTypeHints = true,
+			},
+		},
+	},
 })
 
 lsp.tflint.setup({
@@ -248,6 +279,11 @@ lsp.svelte.setup({
 })
 
 lsp.astro.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lsp.prismals.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })

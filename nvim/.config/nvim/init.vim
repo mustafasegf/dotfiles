@@ -42,6 +42,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'onsails/lspkind-nvim'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'simrat39/inlay-hints.nvim'
 
 "treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -86,7 +87,9 @@ Plug 'github/copilot.vim'
 Plug 'windwp/nvim-autopairs'
  
 "quality of life
-Plug 'b3nj5m1n/kommentary'
+" Plug 'b3nj5m1n/kommentary'
+Plug 'numToStr/Comment.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'windwp/nvim-ts-autotag'
 Plug 'matze/vim-move'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
