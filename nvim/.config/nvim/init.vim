@@ -51,6 +51,7 @@ Plug 'nvim-treesitter/playground'
 "Language spesific
 Plug 'ray-x/go.nvim'
 Plug 'mfussenegger/nvim-jdtls'
+Plug 'simrat39/rust-tools.nvim'
 
 "file tree
 Plug 'kyazdani42/nvim-web-devicons'
@@ -95,7 +96,7 @@ Plug 'matze/vim-move'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-surround'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'Pocco81/AutoSave.nvim'
+Plug 'Pocco81/auto-save.nvim'
 Plug 'ThePrimeagen/refactoring.nvim'
 Plug 'windwp/nvim-spectre'
 
