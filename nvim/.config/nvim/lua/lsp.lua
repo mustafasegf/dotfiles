@@ -65,7 +65,7 @@ vim.api.nvim_set_keymap("n", "[d", ":lua vim.diagnostic.goto_prev()<CR>", opts)
 vim.api.nvim_set_keymap("n", "]d", ":lua vim.diagnostic.goto_next()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<space>q", ":lua vim.diagnostic.setloclist()<CR>", opts)
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", ":lua vim.lsp.buf.declaration()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", ":lua vim.lsp.buf.definition()<CR>", opts)
@@ -81,7 +81,7 @@ local on_attach = function(client, bufnr)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>rn", ":lua vim.lsp.buf.rename()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>ca", ":lua vim.lsp.buf.code_action()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":lua vim.lsp.buf.references()<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>fo", ":lua vim.lsp.buf.format()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>fo", ":lua vim.lsp.buf.format( {timeout_ms = 5000} )<CR>", opts)
 end
 
 local null_ls = require("null-ls")
@@ -110,8 +110,10 @@ require("null-ls").setup({
 		formatting.gofumpt,
 		formatting.goimports,
 		formatting.jq,
-		formatting.rustfmt,
-		formatting.black,
+		-- formatting.rustfmt,
+		formatting.black.with({
+      args = { "--stdin-filename", "$FILENAME", "--quiet", "-", "--line-length", "110", "--skip-string-normalization"},
+    }),
 		formatting.terrafmt,
 		formatting.clang_format,
 		formatting.shfmt,
@@ -153,7 +155,33 @@ lsp.clangd.setup({
 lsp.rust_analyzer.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	settings = {
+		rust = {
+			inlayHints = {
+				includeInlayEnumMemberValueHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayVariableTypeHints = true,
+			},
+		},
+	},
 })
+
+-- local rt = require("rust-tools")
+
+-- rt.setup({
+--   server = {
+--     on_attach = function(_, bufnr)
+--       -- Hover actions
+--       vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+--       -- Code action groups
+--       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+--     end,
+--   },
+-- })
 
 lsp.hls.setup({
 	capabilities = capabilities,
@@ -168,18 +196,12 @@ lsp.gopls.setup({
 lsp.pyright.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-	-- settings = {
-	--   python = {
-	--
-	--   }
-	-- }
 })
 
 lsp.tsserver.setup({
 	capabilities = capabilities,
 	on_attach = function(c, b)
 		on_attach(c, b)
-		-- ih.on_attach(c, b)
 	end,
 	settings = {
 		javascript = {
@@ -240,6 +262,22 @@ lsp.emmet_ls.setup({
 lsp.tailwindcss.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	-- root_dir = function(fname)
+	-- 	return lsp.util.root_pattern(
+ --      "tailwind.config.cjs",
+	-- 		"tailwind.config.js",
+	-- 		"tailwind.config.ts",
+	-- 		"tailwind.config.mjs",
+	-- 		"tailwind.config.json",
+	-- 		"package.json",
+	-- 		"postcss.config.js",
+	-- 		"postcss.config.ts",
+	-- 		"postcss.config.cjs",
+	-- 		"postcss.config.mjs",
+	-- 		"postcss.config.json",
+	-- 		".git"
+	-- 	)(fname) or vim.loop.os_homedir()
+	-- end,
 })
 
 lsp.taplo.setup({

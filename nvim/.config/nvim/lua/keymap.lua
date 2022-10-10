@@ -33,4 +33,3 @@ vim.keymap.set("n", "<leader>q", ':q<CR>', {silent= true}) ]]
 -- splits
 vim.keymap.set("n", "<leader>s", ":split<CR><C-w>j", { silent = true })
 vim.keymap.set("n", "<leader>v", ":vsplit<CR><C-w>l", { silent = true })
-
